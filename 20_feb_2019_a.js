@@ -20,8 +20,8 @@ let data_content=[
         percentage_of_discount : 60 ,
     }
 ]
-var input_type =window.prompt('Enter type')
-var input_amount=Number(window.prompt('Enter amount'))
+let input_type =window.prompt('Enter type')
+let input_amount=Number(window.prompt('Enter amount'))
 amount_data(input_type,input_amount)
 
 function amount_data(input_type,input_amount)
@@ -29,21 +29,33 @@ function amount_data(input_type,input_amount)
     for(i=0;i<data_content.length;i++)
     {
         if(data_content[i].type_of_data==input_type)
-        {
-            console.log('Type of data : '+data_content[i].type_of_data)
-            console.log('Amount : '+input_amount)
-            console.log('Discount : '+data_content[i].percentage_of_discount)
+        {  
+            let Type_of_data = data_content[i].type_of_data
+            let Amount = input_amount
+            let Discount =data_content[i].percentage_of_discount
             let reduced_amount =(input_amount*data_content[i].percentage_of_discount)/100
-            console.log('Discount amount : '+ reduced_amount)
+            let Discount_amount = reduced_amount
             let amount_paid=(input_amount-reduced_amount)
-            console.log('Amount paid : '+amount_paid)
+            let Amount_paid = amount_paid
+
+            var object=
+            [
+            {"Type_of_data" : Type_of_data ,
+            "Amount" : Amount,
+            "Discount" : Discount,
+            "Discount_amount" : Discount_amount,
+            "Amount_paid" :Amount_paid,}
+            ]
             
         }
-        else if (input_type!=data_content[i].type_of_data)
+        else
         {
             console.log('Type do not exist')
         }
         
     }
+    
+    return object
 }
+
 
